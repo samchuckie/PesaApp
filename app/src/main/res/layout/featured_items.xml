@@ -24,7 +24,7 @@
         android:layout_width="@dimen/heartshape"
         android:layout_height="@dimen/heartshape"
         android:background="@drawable/ic_favorite_border_black_24dp"
-        tools:layout_editor_absoluteX="318dp"
+        tools:layout_editor_absoluteX="345dp"
         tools:layout_editor_absoluteY="16dp"
 
         />
