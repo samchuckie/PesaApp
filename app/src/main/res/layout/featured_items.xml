@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -15,6 +16,37 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/gaming"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/heartshape"
+        android:layout_height="@dimen/heartshape"
+        android:background="@drawable/ic_favorite_border_black_24dp"
+        tools:layout_editor_absoluteX="318dp"
+        tools:layout_editor_absoluteY="16dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="228dp"
+        tools:text="Tinga tinga tales of"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="262dp"
+        tools:text="Tinga tinga tales of"
+
+        />
 
 </android.support.constraint.ConstraintLayout>

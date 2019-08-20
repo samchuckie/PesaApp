@@ -7,5 +7,6 @@
     <dimen name="btn_radius">50dp</dimen>
     <dimen name="sixteen_sp">16sp</dimen>
     <dimen name="title_top">60dp</dimen>
+    <dimen name="heartshape">50dp</dimen>
 
 </resources>
