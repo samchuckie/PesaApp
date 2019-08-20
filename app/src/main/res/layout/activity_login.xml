@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login"
+    android:paddingLeft="@dimen/thirty_two_dp"
+    android:paddingRight="@dimen/thirty_two_dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_to_PesaApp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/title_top"
+        android:layout_marginBottom="@dimen/thirty_two_dp"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/title_sp"
+
+        />
+
+    <EditText
+        style="@style/fields_edit"
+        android:id="@+id/phone_number"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+
+        />
+
+    <EditText
+        style="@style/fields_edit"
+        android:id="@+id/password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        style="@style/fields_button"
+        android:text="@string/log_in"
+        android:id="@+id/login_btn"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up_text"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:textColor="@android:color/black"
+        android:id="@+id/signup_tv"
+        android:textSize="@dimen/sixteen_sp"
+
+        />
+
+</LinearLayout>

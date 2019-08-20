@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PesaApp</string>
+    <string name="welcome_to_PesaApp">Welcome to PesaApp</string>
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up_text">Dont have an account? Sign up</string>
+    <string name="input_details">Input details</string>
+    <string name="signup">Sign up</string>
+    <string name="already_account">Already have an account ?Log in</string>
+    <string name="email">Email address</string>
+    <string name="log_out">Log out</string>
+    <string name="title_text"><![CDATA[Events & Travel]]></string>
+    <string name="featured_events">Featured Events</string>
+</resources>
