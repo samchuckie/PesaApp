@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/guideline3"
-            android:text="Tinga tinga tales of subsaha" />
+            android:text="@string/dummy_text" />
 
         <TextView
             android:id="@+id/host_tv"
@@ -68,7 +68,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/more_title"
-            android:text="nkKenya National Theatre(KNT)" />
+            android:text="@string/dummy_host" />
 
         <LinearLayout
             android:layout_width="wrap_content"

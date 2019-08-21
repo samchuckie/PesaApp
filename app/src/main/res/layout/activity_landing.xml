@@ -20,7 +20,6 @@
             android:id="@+id/events_search"
             android:queryHint="Search"
             android:layout_marginTop="@dimen/sixteen_dp"
-            android:visibility="gone"
             />
 
         <TextView

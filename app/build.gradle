@@ -41,4 +41,5 @@ dependencies {
     // optional - Test helpers for LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.android.support:design:28.0.0'
 }
