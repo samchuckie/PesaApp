@@ -12,18 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Landing"
-            android:parentActivityName=".Login"
-            ></activity>
-        <activity android:name=".SignUp"
-            android:label="@string/title_text"
-            />
-        <activity android:name=".Login">
+        <activity android:name=".Event"
+            android:parentActivityName=".Landing"
+            >
+
+        </activity>
+
+        <activity
+            android:name=".Landing"
+            android:parentActivityName=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SignUp"
+            android:label="@string/title_text" />
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>
