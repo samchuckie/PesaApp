@@ -7,8 +7,6 @@
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/eight_dp"
     android:layout_margin="@dimen/eight_dp"
-
-
     >
 
     <android.support.constraint.ConstraintLayout

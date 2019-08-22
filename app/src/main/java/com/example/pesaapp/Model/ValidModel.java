@@ -28,7 +28,7 @@ public class ValidModel {
         @Override
         public void onResponse(Call<PesaUsers> call, Response<PesaUsers> response) {
             Log.e("sam" , "The response code is " + response.code());
-            response_code.postValue(response.code());
+            response_code.setValue(response.code());
         }
 
         @Override

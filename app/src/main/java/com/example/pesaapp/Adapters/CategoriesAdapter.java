@@ -5,14 +5,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.example.pesaapp.Model.More;
+import com.example.pesaapp.Data.Categories;
+import com.example.pesaapp.Data.More;
 import com.example.pesaapp.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
-    private ArrayList<More> moreArrayList = new ArrayList<>();
+    private List<Categories> moreArrayList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -23,7 +30,27 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        // SWITCH TO LOADING ALL THE VARIABLES IN THE CLSS AN SENDING IT HERE
 
+        Categories categories = moreArrayList.get(i);
+        String switcher = categories.getName();
+        switch (switcher){
+            case "Music":
+                viewHolder.categImage.setBackgroundResource(R.drawable.ic_music_note_black_24dp);
+                viewHolder.categLinear.setBackgroundResource(R.drawable.music_cat);
+                viewHolder.categTitle.setText(switcher);
+                break;
+            case "Art":
+                viewHolder.categImage.setBackgroundResource(R.drawable.ic_palette_black_24dp);
+                viewHolder.categLinear.setBackgroundResource(R.drawable.art_cat);
+                viewHolder.categTitle.setText(switcher);
+                break;
+            case "Gaming":
+                viewHolder.categImage.setBackgroundResource(R.drawable.ic_gamepad_black_24dp);
+                viewHolder.categLinear.setBackgroundResource(R.drawable.gaming_cat);
+                viewHolder.categTitle.setText(switcher);
+                break;
+        }
     }
 
     @Override
@@ -31,16 +58,24 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         if(moreArrayList.size()!=0){
             return moreArrayList.size();
         }
-        return 3;
+        return 0;
     }
-    public void getMore(More more){
-        moreArrayList.add(more);
+
+
+    public void addCategories(List<Categories> categoriesList) {
+        moreArrayList = categoriesList;
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull View itemView) {
+    class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView categImage;
+        LinearLayout categLinear;
+        TextView categTitle;
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
+            categImage =itemView.findViewById(R.id.categImage);
+            categLinear = itemView.findViewById(R.id.categLinear);
+            categTitle =itemView.findViewById(R.id.categTitle);
         }
     }
 }

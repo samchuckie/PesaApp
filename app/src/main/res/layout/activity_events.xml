@@ -46,7 +46,6 @@
                     android:text="@string/dummy_text"
                     android:textSize="@dimen/sp_thirty_two"
                     android:textColor="@android:color/black"
-
                     />
                 <TextView
                     android:layout_width="match_parent"

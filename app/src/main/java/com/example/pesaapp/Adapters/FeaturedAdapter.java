@@ -2,17 +2,22 @@ package com.example.pesaapp.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.example.pesaapp.Model.More;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.example.pesaapp.Data.More;
 import com.example.pesaapp.R;
-
+import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
+import java.util.List;
+import static com.example.pesaapp.Data.Constants.LOCALHOST;
+import static com.example.pesaapp.Data.Constants.LOCALHOSTIMAGES;
 
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHolder> {
-    private ArrayList<More> moreArrayList = new ArrayList<>();
+    private List<More> moreArrayList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -23,24 +28,41 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
+        Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).into(viewHolder.imageView);
+        Log.e("sam","Url path is " + LOCALHOST +"loadImages"  +  moreArrayList.get(i).getPhoto());
+        viewHolder.more_title.setText(moreArrayList.get(i).getTitle());
+        viewHolder.host_tv.setText(moreArrayList.get(i).getHost());
+        viewHolder.month.setText(moreArrayList.get(i).getStart_date());
+        viewHolder.day.setText(moreArrayList.get(i).getStart_date());
     }
 
-    public void getFeautre(More more){
-        moreArrayList.add(more);
-        notifyDataSetChanged();
-    }
+
     @Override
     public int getItemCount() {
         if(moreArrayList.size()!=0){
             return moreArrayList.size();
         }
-        return 3;
+        return 0;
+    }
+
+    public void setFeatured(List<More> featuredObserver) {
+        moreArrayList =featuredObserver;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView more_title ,host_tv, month ,day;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.imageView);
+            more_title = itemView.findViewById(R.id.more_title);
+            host_tv = itemView.findViewById(R.id.host_tv);
+            month = itemView.findViewById(R.id.month);
+            day = itemView.findViewById(R.id.day);
+
+
         }
     }
 }
