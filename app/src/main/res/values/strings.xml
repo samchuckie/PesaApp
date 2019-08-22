@@ -18,7 +18,7 @@
     <string name="see_all">See all</string>
     <string name="more_events">More events</string>
     <string name="load_all_events">Load all events</string>
-    <string name="dummy_text">Tinga tinga tales of subsaha</string>
+    <string name="dummy_text">Tinga tinga tales of subsahara </string>
     <string name="dummy_host">nkKenya National Theatre(KNT)</string>
     <string name="by_dummy_host">by nkKenya National Theatre(KNT)</string>
     <string name="when">When</string>
@@ -38,4 +38,12 @@
     <string name="advance_day_1">Advance day 1</string>
     <string name="fifteen_hundred">1500</string>
     <string name="proceed">Proceed</string>
+    <string name="safaricom_pre_paid">Safaricom Pre-paid</string>
+    <string name="account">ACCOUNT</string>
+    <string name="total">TOTAL</string>
+    <string name="pay_with">PAY WITH</string>
+    <string name="kes_5000">KES 5000</string>
+    <string name="card">Card</string>
+    <string name="m_pesa">M-PESA</string>
+    <string name="continues">continue</string>
 </resources>

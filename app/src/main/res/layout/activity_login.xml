@@ -19,12 +19,24 @@
         android:textSize="@dimen/title_sp"
 
         />
+    <TextView style="@style/wrap_wrap"
+        android:text="@string/phone_number"
+        android:visibility="invisible"
+        android:id="@+id/phone_label"
+
+        />
 
     <EditText
         style="@style/fields_edit"
         android:id="@+id/phone_number"
         android:hint="@string/phone_number"
         android:inputType="phone"
+
+        />
+    <TextView style="@style/wrap_wrap"
+        android:text="@string/password"
+        android:id="@+id/password_label"
+        android:visibility="invisible"
 
         />
 
@@ -39,6 +51,7 @@
         style="@style/fields_button"
         android:text="@string/log_in"
         android:id="@+id/login_btn"
+        android:layout_marginTop="@dimen/thirty_two_dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +62,6 @@
         android:textColor="@android:color/black"
         android:id="@+id/signup_tv"
         android:textSize="@dimen/sixteen_sp"
-
         />
 
 </LinearLayout>

@@ -18,21 +18,35 @@
         android:textColor="@android:color/black"
         android:textSize="@dimen/title_sp"
         />
+    <TextView style="@style/wrap_wrap"
+        android:text="@string/email"
+        android:visibility="invisible"
+        android:id="@+id/email_label"
 
+        />
     <EditText
         style="@style/fields_edit"
         android:id="@+id/email"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         />
+    <TextView style="@style/wrap_wrap"
+        android:text="@string/phone_number"
+        android:visibility="invisible"
+        android:id="@+id/phone_label"
 
+        />
     <EditText
         style="@style/fields_edit"
         android:id="@+id/sign_phone_number"
         android:hint="@string/phone_number"
         android:inputType="phone"
         />
-
+    <TextView style="@style/wrap_wrap"
+        android:text="@string/password"
+        android:visibility="invisible"
+        android:id="@+id/password_label"
+        />
     <EditText
         style="@style/fields_edit"
         android:id="@+id/sign_password"
@@ -44,6 +58,7 @@
         style="@style/fields_button"
         android:text="@string/signup"
         android:id="@+id/signup_btn"
+        android:layout_marginTop="@dimen/sixteen_dp"
         />
     <TextView
         android:layout_width="wrap_content"

@@ -17,7 +17,6 @@
     <style name="fields">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/sixteen_dp</item>
         <item name="android:textSize">@dimen/sixteen_sp</item>
     </style>
 
@@ -26,6 +25,11 @@
         <item name="android:padding">@dimen/sixteen_dp</item>
     </style>
 
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/sixteen_dp</item>
+    </style>
     <style name="fields_button" parent="fields">
         <item name="android:background">@drawable/field_background_button</item>
         <item name="android:textColor">@android:color/white</item>
@@ -44,5 +48,7 @@
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
+
+
 
 </resources>
