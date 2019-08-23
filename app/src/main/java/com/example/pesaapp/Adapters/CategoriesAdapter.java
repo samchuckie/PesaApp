@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.pesaapp.Data.Categories;
-import com.example.pesaapp.Data.More;
 import com.example.pesaapp.R;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
     private List<Categories> moreArrayList = new ArrayList<>();
+    public CategInt categInt;
+
+    public CategoriesAdapter(CategInt categInt) {
+        this.categInt = categInt;
+    }
 
     @NonNull
     @Override
@@ -30,7 +30,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        // SWITCH TO LOADING ALL THE VARIABLES IN THE CLSS AN SENDING IT HERE
+        // SWITCH TO LOADING ALL THE VARIABLES IN THE CLASS AN SENDING IT HERE
 
         Categories categories = moreArrayList.get(i);
         String switcher = categories.getName();
@@ -66,6 +66,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         moreArrayList = categoriesList;
         notifyDataSetChanged();
     }
+    public interface CategInt{
+        void categoryCliked(String category);
+    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         ImageView categImage;
@@ -76,6 +79,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
             categImage =itemView.findViewById(R.id.categImage);
             categLinear = itemView.findViewById(R.id.categLinear);
             categTitle =itemView.findViewById(R.id.categTitle);
+            itemView.setOnClickListener(categoryClicked ->{
+                categInt.categoryCliked(moreArrayList.get(getAdapterPosition()).getName());
+            });
         }
     }
 }

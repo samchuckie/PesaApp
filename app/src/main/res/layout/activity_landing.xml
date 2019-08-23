@@ -9,17 +9,17 @@
     >
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".Landing"
         >
         <SearchView
-            style="@style/fields_button"
+            style="@style/fields_searchview"
             android:id="@+id/events_search"
-            android:queryHint="Search"
+            android:queryHint="Search events"
             android:layout_marginTop="@dimen/sixteen_dp"
+            android:iconifiedByDefault="false"
             />
 
         <TextView
@@ -120,7 +120,7 @@
             tools:listitem="@layout/more_items"
             tools:orientation="vertical" />
         <Button
-            style="@style/fields_button"
+            style="@style/fields_button_blue"
             android:text="@string/load_all_events"
             android:layout_marginBottom="@dimen/eight_dp"
             android:layout_marginTop="@dimen/eight_dp"

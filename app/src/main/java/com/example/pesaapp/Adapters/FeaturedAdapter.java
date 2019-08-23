@@ -18,6 +18,11 @@ import static com.example.pesaapp.Data.Constants.LOCALHOSTIMAGES;
 
 public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHolder> {
     private List<More> moreArrayList = new ArrayList<>();
+    Itemclicked itemclicked;
+
+    public FeaturedAdapter(Itemclicked itemclicked) {
+        this.itemclicked =itemclicked;
+    }
 
     @NonNull
     @Override
@@ -49,19 +54,24 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
         moreArrayList =featuredObserver;
         notifyDataSetChanged();
     }
+    public interface Itemclicked{
+        void eventClicked(More more);
+    }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView more_title ,host_tv, month ,day;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             more_title = itemView.findViewById(R.id.more_title);
             host_tv = itemView.findViewById(R.id.host_tv);
             month = itemView.findViewById(R.id.month);
             day = itemView.findViewById(R.id.day);
-
+            itemView.setOnClickListener(clicked ->{
+                itemclicked.eventClicked(moreArrayList.get(getAdapterPosition()));
+            });
 
         }
     }

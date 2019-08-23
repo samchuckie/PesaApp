@@ -30,8 +30,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">@dimen/sixteen_dp</item>
     </style>
+
     <style name="fields_button" parent="fields">
         <item name="android:background">@drawable/field_background_button</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="fields_button_blue" parent="fields">
+        <item name="android:background">@drawable/field_background_blue</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="fields_searchview" parent="fields">
+        <item name="android:background">@drawable/field_serchview</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

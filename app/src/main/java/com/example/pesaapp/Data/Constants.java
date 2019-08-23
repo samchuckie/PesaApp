@@ -5,7 +5,8 @@ public class Constants {
     public final static  String LOCALHOST = "http://192.168.137.1:8080/";
 
     //TODO CHANGE PATHING
-    public final static  String LOCALHOSTIMAGES = "http://192.168.137.1:8080/loadImages/";
+    public final static String LOCALHOSTIMAGES = "http://192.168.137.1:8080/loadImages/";
+    public final static String CATEGORY_KEY = "CATEGORY_KEY" ;
 
 
 }
