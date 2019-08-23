@@ -12,21 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ManyEvents"></activity>
-        <activity
-            android:name=".Payment"
-            android:label=""
-            android:parentActivityName=".Event"
-            android:theme="@style/AppTheme.Transparent"></activity>
-        <activity
-            android:name=".Event"
-            android:label=""
-            android:parentActivityName=".Landing"
-            android:theme="@style/AppTheme.Transparent"></activity>
-        <activity
-            android:name=".Landing"
-            android:label="@string/title_text"
-            android:parentActivityName=".Login">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +20,25 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUp" />
-        <activity android:name=".Login"></activity>
+        <activity
+            android:name=".Landing"
+            android:label="@string/title_text"
+            android:parentActivityName=".Login">
+
+        </activity>
+        <activity
+            android:name=".Event"
+            android:label=""
+            android:parentActivityName=".Landing"
+            android:theme="@style/AppTheme.Transparent"></activity>
+        <activity android:name=".ManyEvents"></activity>
+        <activity
+            android:name=".Payment"
+            android:label=""
+            android:parentActivityName=".Event"
+            android:theme="@style/AppTheme.Transparent">
+
+        </activity>
     </application>
 
 </manifest>

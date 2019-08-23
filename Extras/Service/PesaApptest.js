@@ -5,6 +5,8 @@ const insertVal =  require('./insertVal')
 // const getValid = require('./getValid')
 const altselect = require('./altselect')
 const sequalizeEvent = require('./sequalizeEvents')
+const art = require('./sequalizeArt')
+const sequalizeGaming = require('./sequalizeGaming')
 const app = express()
 const port = 8080
 app.use("/public" , express.static(path.join(__dirname)));
@@ -41,6 +43,24 @@ app.get("/featured" ,(req,resp) =>{
 app.get("/search/:searchParam" , (req,resp)=>{
     const searching = req.params.searchParam
     sequalizeEvent.search(resp,searching)
+})
+app.get("/category/:category", (req,resp) =>{
+    const category =  req.params.category
+    switch(category){
+        case "Art":
+            console.log("Art")
+            art.getArty(resp)
+            break;
+        case "Music":
+            console.log("Music")
+            break;
+        case "Gaming":
+            console.log("Gaming")
+            sequalizeGaming.gamingy(resp)
+            break;
+            
+    }
+
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}!`))

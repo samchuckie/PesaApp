@@ -5,8 +5,10 @@ import android.os.Parcelable;
 
 public class More implements Parcelable {
 
-    private String title, host, photo, start_date, location, description, time_from, time_to, close_date, close_time ;
-    private int id,early_price , advance_price;
+    private String host, photo, start_date, location, description, time_from, time_to, close_date, close_time ;
+
+    private String title;
+    private int id,early_price, advance_price;
 
     public More(String title, String host, String photo, String start_date, String location, String description,
                     String time_from, String time_to, String close_date, String close_time, int id, int early_price, int advance_price) {
@@ -27,50 +29,59 @@ public class More implements Parcelable {
 
     public More() {
     }
+    public String favdateformated(){
+        String date = dateformat()[2];
+        String month = dateformat()[1];
+        return date + "/"+  month;
+    }
+    public String eventdateformated(){
+        String date = dateformat()[2];
+        return date + " "+  dayconvertor();
+    }
 
     public String[] dateformat (){
         return this.start_date.split("-");
     }
-    public String dayconvertot(){
-        String month = dateformat()[2];
+    public String dayconvertor(){
+        String month = dateformat()[1];
         String mm = "";
         switch (month){
             case "01":
-                mm= "JAN";
+                mm= "Jan";
                 break;
             case "02":
-                mm = "FEB";
+                mm = "Feb";
                 break;
             case "03":
-                mm =  "MCH";
+                mm =  "Mar";
             break;
             case "04":
-                mm =  "APR";
+                mm =  "Apr";
             break;
             case "05":
-                mm =  "MAY";
+                mm =  "May";
             break;
             case "06":
-                mm =  "JUNE";
+                mm =  "June";
             break;
 
             case "07":
-                mm =  "JLY";
+                mm =  "Jly";
             break;
             case "08":
-                mm =  "AUG";
+                mm =  "Aug";
             break;
             case "09":
-                mm =  "SEP";
+                mm =  "Sep";
             break;
             case "10":
-                mm =  "OCT";
+                mm =  "Oct";
             break;
             case "11":
-                mm =  "NOV";
+                mm =  "Nov";
             break;
             case "DEC":
-                mm =  "DEC";
+                mm =  "Dec";
             break;
             default:
         }

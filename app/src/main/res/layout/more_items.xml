@@ -21,11 +21,13 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:background="@drawable/gaming"
+            tools:background="@drawable/gaming"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/categories_description"
+            />
 
         <ImageView
             android:layout_width="@dimen/heartshape"
@@ -34,9 +36,10 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/favourite_heart"
+            android:src="@android:color/transparent"
+            android:contentDescription="@string/categories_description"
+            android:alpha="1"
             />
-
-
         <TextView
             android:id="@+id/more_title"
             android:layout_width="240dp"
@@ -55,7 +58,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/guideline3"
-            android:text="@string/dummy_text" />
+            tools:text="@string/dummy_text" />
 
         <TextView
             android:id="@+id/host_tv"
@@ -71,11 +74,11 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/more_title"
-            android:text="@string/dummy_host" />
+            tools:text="@string/dummy_host" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/date_view"
             android:orientation="vertical"
@@ -90,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="SEPT"
+                tools:text="SEPT"
                 />
 
             <TextView
@@ -98,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="30"
+                tools:text="30"
                 android:layout_gravity="center"
 
                 />

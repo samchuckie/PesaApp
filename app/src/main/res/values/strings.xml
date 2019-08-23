@@ -50,4 +50,8 @@
     <string name="cancel">cancel</string>
     <string name="found">Found one result</string>
     <string name="location">Location</string>
+    <string name="none">No results found</string>
+    <string name="preference_key">myprivatekey</string>
+    <string name="user_phone">phone</string>
+    <string name="pesapref">pesapreference</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.pesaapp;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,10 @@ import com.example.pesaapp.ViewModels.ManyVM;
 
 import static com.example.pesaapp.Data.Constants.CATEGORY_KEY;
 import static com.example.pesaapp.Data.Constants.EVENT_EXTRA;
+import static com.example.pesaapp.Data.Constants.FAVOURITES;
+import static com.example.pesaapp.Data.Constants.LOADALL;
+import static com.example.pesaapp.Data.Constants.PREFKEY;
+import static com.example.pesaapp.Data.Constants.PREFNAME;
 
 public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclicked {
     ManyVM manyVM;
@@ -35,14 +40,19 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
 
         //if categerory key or all events key from button
 
-        manyVM.getMoreList().observe(this , listObserver-> allAdapter.setAll(listObserver));
-
+        manyVM.getMoreList().observe(this , allAdapter::setAll);
         Intent intent = getIntent();
         if(intent!=null && intent.hasExtra(CATEGORY_KEY)){
-            Log.e("sam","Intent has category extra");
             String category = intent.getStringExtra(CATEGORY_KEY);
-            Log.e("sam" ,"The category is" + category);
             manyVM.getCategory(category);
+        }
+        if(intent!=null && intent.hasExtra(LOADALL)){
+            manyVM.getAll();
+        }
+        if(intent!=null && intent.hasExtra(FAVOURITES)){
+            SharedPreferences sharedPreferences = this.getSharedPreferences(PREFNAME,MODE_PRIVATE);
+            long phone =sharedPreferences.getLong(PREFKEY,0);
+            manyVM.getFavourite(phone);
         }
     }
 
@@ -51,6 +61,11 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
         Intent intent =  new Intent(ManyEvents.this ,Event.class);
         intent.putExtra(EVENT_EXTRA, more);
         startActivity(intent);
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }

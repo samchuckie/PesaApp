@@ -37,16 +37,20 @@ public class MoreAdapters  extends RecyclerView.Adapter<MoreAdapters.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).into(viewHolder.imageView);
+        Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).fit().into(viewHolder.imageView);
         viewHolder.more_title.setText(moreArrayList.get(i).getTitle());
         viewHolder.host_tv.setText(moreArrayList.get(i).getHost());
-        viewHolder.month.setText(moreArrayList.get(i).dayconvertot());
+        viewHolder.month.setText(moreArrayList.get(i).dayconvertor());
         viewHolder.day.setText(moreArrayList.get(i).dateformat()[2]);
     }
 
     @Override
     public int getItemCount() {
-        if(moreArrayList.size()!=0){
+        int size =moreArrayList.size();
+        if(size!=0){
+            if(size>3){
+                return 3;
+            }
             return moreArrayList.size();
         }
         return 0;

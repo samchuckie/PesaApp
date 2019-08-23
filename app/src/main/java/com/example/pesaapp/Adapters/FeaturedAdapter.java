@@ -33,10 +33,10 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).into(viewHolder.imageView);
+        Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).fit().into(viewHolder.imageView);
         viewHolder.more_title.setText(moreArrayList.get(i).getTitle());
         viewHolder.host_tv.setText(moreArrayList.get(i).getHost());
-        viewHolder.month.setText(moreArrayList.get(i).dateformat()[1]);
+        viewHolder.month.setText(moreArrayList.get(i).dayconvertor());
         viewHolder.day.setText(moreArrayList.get(i).dateformat()[2]);
     }
 

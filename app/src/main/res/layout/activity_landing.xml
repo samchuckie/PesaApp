@@ -70,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/eight_dp"
             >
             <TextView
                 android:layout_width="0dp"
@@ -78,7 +79,7 @@
                 android:text="@string/my_favourite"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp_twenty_four"
-                android:gravity="center"
+                android:gravity="bottom"
                 />
             <TextView
                 android:layout_width="0dp"
@@ -87,8 +88,9 @@
                 android:text="@string/see_all"
                 android:textColor="@color/blue_strong"
                 android:textAllCaps="true"
-                android:gravity="center|end"
+                android:gravity="bottom|end"
                 android:textSize="@dimen/sixteen_sp"
+                android:id="@+id/see_all"
 
                 />
         </LinearLayout>
@@ -119,12 +121,13 @@
             tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
             tools:listitem="@layout/more_items"
             tools:orientation="vertical" />
+
         <Button
             style="@style/fields_button_blue"
             android:text="@string/load_all_events"
             android:layout_marginBottom="@dimen/eight_dp"
             android:layout_marginTop="@dimen/eight_dp"
+            android:id="@+id/load_all"
             />
-
     </LinearLayout>
 </ScrollView>

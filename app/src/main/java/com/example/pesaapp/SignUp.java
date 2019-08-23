@@ -2,6 +2,7 @@ package com.example.pesaapp;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,16 +16,20 @@ import android.widget.Toast;
 import com.example.pesaapp.Data.PesaUsers;
 import com.example.pesaapp.ViewModels.ValidVM;
 
+import static com.example.pesaapp.Data.Constants.PREFNAME;
 import static com.example.pesaapp.Login.animate;
 
 public class SignUp extends AppCompatActivity {
     EditText sign_phone_number, sign_password,email_et;
     ValidVM validVM;
-
+    SharedPreferences sharedPreferences;
+    Long phonenumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        sharedPreferences = this.getSharedPreferences(PREFNAME,MODE_PRIVATE);
+
 
 
         //TODO SWITCH FROM TOAST TO DIALOG INFORMING USER TO GO BACK. ONCLICK GO TO SIGN UP
@@ -76,23 +81,22 @@ public class SignUp extends AppCompatActivity {
                 Toast.makeText(this,"Please input all the fields",Toast.LENGTH_SHORT).show();
             }
             else {
-                Long phonenumber =  Long.parseLong(sign_phone_number.getText().toString());
+                phonenumber =  Long.parseLong(sign_phone_number.getText().toString());
                 PesaUsers user = new PesaUsers(phonenumber,pass);
                 validVM.signUp(user);
 
             }
         });
-
-
     }
-
     private void userExists() {
         Toast.makeText(this,"User is already registered",Toast.LENGTH_SHORT).show();
     }
 
     private void userRegistered() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(PREFNAME, phonenumber);
+        editor.apply();
         startActivity(new Intent(SignUp.this, Landing.class));
-        //STORE PREFERENCE TO SKIP LOGIN PART
         finish();
     }
 }

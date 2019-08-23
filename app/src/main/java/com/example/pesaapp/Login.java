@@ -3,6 +3,7 @@ package com.example.pesaapp;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,18 +15,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pesaapp.Data.More;
 import com.example.pesaapp.Data.PesaUsers;
 import com.example.pesaapp.ViewModels.ValidVM;
+
+import static com.example.pesaapp.Data.Constants.PREFKEY;
+import static com.example.pesaapp.Data.Constants.PREFNAME;
 
 
 public class Login extends AppCompatActivity {
     ValidVM validVM;
+    Long phonenumber;
+    EditText phone_number, password;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        EditText phone_number, password;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        sharedPreferences = this.getSharedPreferences(PREFNAME ,MODE_PRIVATE);
 
         phone_number= findViewById(R.id.phone_number);
         password= findViewById(R.id.password);
@@ -52,7 +60,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this,"Please input all the fields",Toast.LENGTH_SHORT).show();
             }
             else {
-                Long phonenumber =  Long.parseLong(phone_number.getText().toString());
+                phonenumber =  Long.parseLong(phone_number.getText().toString());
                 PesaUsers user = new PesaUsers(phonenumber,pass);
                 validVM.login(user);
 
@@ -77,8 +85,11 @@ public class Login extends AppCompatActivity {
     }
 
     private void userAuthenticated() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(PREFKEY, phonenumber);
+        // consider using commit as the next activity doesnt seem to recognize the preference in the background
+        editor.apply();
         startActivity(new Intent(Login.this, Landing.class));
-        //STORE PREFERENCE TO SKIP LOGIN PART
         finish();
     }
 

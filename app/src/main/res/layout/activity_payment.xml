@@ -85,7 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@android:color/white"
-                    android:text="@string/dummy_text"
+                    tools:text="@string/dummy_text"
+                    android:id="@+id/account_tv"
                     />
                 <TextView
                     android:layout_width="0dp"
@@ -93,7 +94,8 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:textColor="@android:color/white"
-                    android:text="@string/kes_5000"
+                    tools:text="@string/kes_5000"
+                    android:id="@+id/price_pay"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -120,7 +122,10 @@
             android:text="@string/card"
             android:background="@android:color/white"
             android:textColor="@color/blue_light"
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="RtlHardcoded"
+            android:padding="@dimen/sixteen_dp"
+            android:id="@+id/card"
+            />
         <Button
             android:layout_width="120dp"
             android:layout_height="wrap_content"
@@ -128,7 +133,13 @@
             android:text="@string/m_pesa"
             android:background="@drawable/payment_elected"
             android:textColor="@color/blue_strong"
-            tools:ignore="RtlHardcoded" />
+            tools:ignore="RtlHardcoded"
+            android:drawableStart="@drawable/ic_check_circle_black_24dp"
+            android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+            android:padding="@dimen/sixteen_dp"
+            android:id="@+id/mpesa"
+
+            />
 
     </LinearLayout>
     <Button
@@ -139,6 +150,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginLeft="@dimen/thirty_two_dp"
         android:layout_marginRight="@dimen/thirty_two_dp"
-        android:background="@drawable/field_background_button"
+        android:background="@drawable/field_serchview"
+        android:id="@+id/pay_btn"
         />
 </LinearLayout>

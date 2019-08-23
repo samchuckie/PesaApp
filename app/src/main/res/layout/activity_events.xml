@@ -13,7 +13,7 @@
         >
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/coordinatorLayout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             >
@@ -21,9 +21,15 @@
                 android:id="@+id/appbar"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                tools:background="@drawable/gaming"
                 android:fitsSystemWindows="true"
                 >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/title_photo"
+                    tools:background="@drawable/gaming"
+
+                    />
             </android.support.design.widget.AppBarLayout>
         </android.support.design.widget.CoordinatorLayout>
 
@@ -48,6 +54,7 @@
                     android:layout_marginRight="@dimen/eight_dp"
                     android:layout_marginLeft="@dimen/eight_dp"
                     android:layout_marginTop="@dimen/eight_dp"
+                    android:id="@+id/e_title"
                     />
                 <TextView
                     android:layout_width="match_parent"
@@ -56,6 +63,7 @@
                     android:layout_marginTop="@dimen/eight_dp"
                     android:layout_marginRight="@dimen/eight_dp"
                     android:layout_marginLeft="@dimen/eight_dp"
+                    android:id="@+id/e_host"
                     />
 
                 <LinearLayout
@@ -89,6 +97,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             tools:text="@string/date"
+                            android:id="@+id/e_date"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -112,7 +121,8 @@
                         android:layout_marginLeft="@dimen/sixteen_dp"
                         android:layout_marginRight="@dimen/eight_dp"
                         android:layout_marginBottom="@dimen/sixteen_dp"
-                        >
+                        android:layout_marginStart="@dimen/sixteen_dp"
+                        android:layout_marginEnd="@dimen/eight_dp">
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -123,6 +133,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
                             tools:text="@string/dummy_host"
+                            android:id="@+id/e_location"
                             />
                     </LinearLayout>
                 </LinearLayout>
@@ -139,6 +150,7 @@
                     tools:text="@string/random_text"
                     android:textColor="@android:color/black"
                     android:paddingBottom="@dimen/eight_dp"
+                    android:id="@+id/e_description"
                     />
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -174,7 +186,7 @@
                    <TextView
                        android:layout_width="0dp"
                        android:layout_height="wrap_content"
-                       android:layout_weight="5"
+                       android:layout_weight="3"
                        android:text="@string/prices"
                        android:gravity="center"
 
@@ -199,14 +211,17 @@
                        android:layout_weight="5"
                        android:text="@string/early_bird"
                        android:textColor="@android:color/black"
+                       android:textSize="@dimen/sixteen_sp"
+                       android:layout_gravity="center"
                        />
                    <TextView
                        android:layout_width="0dp"
                        android:layout_height="wrap_content"
-                       android:layout_weight="5"
+                       android:layout_weight="3"
                        tools:text="@string/five_hundred"
                        android:textColor="@android:color/black"
-                       android:gravity="center"
+                       android:layout_gravity="center"
+                       android:id="@+id/e_early"
                        />
                    <LinearLayout
                        android:layout_width="0dp"
@@ -218,6 +233,10 @@
                            android:layout_weight="5"
                            android:text="@string/minus"
                            android:textColor="@android:color/black"
+                           android:onClick="subtract"
+                           android:id="@+id/early_sub"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"
                            />
                        <TextView
                            android:layout_width="0dp"
@@ -225,7 +244,9 @@
                            android:layout_weight="5"
                            android:text="@string/zero"
                            android:textColor="@android:color/black"
-
+                           android:id="@+id/e_early_qty"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"
                            />
                        <TextView
                            android:layout_width="0dp"
@@ -233,8 +254,10 @@
                            android:layout_weight="5"
                            android:text="@string/plus"
                            android:textColor="@android:color/black"
-
-                           />
+                           android:onClick="add"
+                           android:id="@+id/early_add"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"                           />
                    </LinearLayout>
                </LinearLayout>
                <TextView
@@ -249,6 +272,7 @@
                    android:layout_height="wrap_content"
                    tools:text="@string/date"
                    android:layout_marginTop="@dimen/eight_dp"
+                   android:id="@+id/e_early_close"
                    />
                <LinearLayout
                    android:layout_width="match_parent"
@@ -262,14 +286,21 @@
                        android:layout_weight="5"
                        android:text="@string/advance_day_1"
                        android:textColor="@android:color/black"
+                       android:layout_gravity="center"
+                       android:textSize="@dimen/sixteen_sp"
+
                        />
+
                    <TextView
+                       android:id="@+id/e_advance"
                        android:layout_width="0dp"
                        android:layout_height="wrap_content"
-                       android:layout_weight="5"
-                       tools:text="@string/fifteen_hundred"
-                       android:gravity="center"
+                       android:layout_weight="3"
+                       android:layout_gravity="center"
                        android:textColor="@android:color/black"
+                       tools:text="@string/fifteen_hundred"
+                       android:textSize="@dimen/sixteen_sp"
+
                        />
                    <LinearLayout
                        android:layout_width="0dp"
@@ -280,6 +311,11 @@
                            android:layout_height="wrap_content"
                            android:layout_weight="5"
                            android:text="@string/minus"
+                           android:onClick="subtract"
+                           android:id="@+id/late_sub"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"
+
                            />
                        <TextView
                            android:layout_width="0dp"
@@ -287,14 +323,21 @@
                            android:layout_weight="5"
                            android:text="@string/zero"
                            android:textColor="@android:color/black"
+                           android:id="@+id/e_advance_qty"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"
                            />
+
                        <TextView
                            android:layout_width="0dp"
-                           android:layout_height="wrap_content"
+                           android:layout_height="match_parent"
                            android:layout_weight="5"
+                           android:onClick="add"
                            android:text="@string/plus"
                            android:textColor="@android:color/black"
-
+                           android:id="@+id/late_add"
+                           android:gravity="center"
+                           android:textSize="@dimen/sp_thirty_two"
                            />
                    </LinearLayout>
                </LinearLayout>
@@ -311,12 +354,14 @@
                    android:layout_height="wrap_content"
                    tools:text="@string/date"
                    android:layout_marginTop="@dimen/sixteen_dp"
+                   android:id="@+id/e_early_advance"
                    />
                <Button
                    style="@style/fields_searchview"
                    android:text="@string/proceed"
                    android:textColor="@android:color/black"
                    android:layout_marginTop="@dimen/sixteen_dp"
+                   android:id="@+id/e_proceed"
                    />
            </LinearLayout>
         </android.support.v7.widget.CardView>

@@ -12,14 +12,12 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         >
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="150dp"
-            android:background="@drawable/gaming"
+            tools:background="@drawable/gaming"
             app:layout_constraintEnd_toEndOf="@id/guideline2"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +36,7 @@
             android:maxLines="1"
             android:paddingLeft="@dimen/eight_dp"
             android:paddingRight="@dimen/eight_dp"
-            android:text="Tinga tinga tales of subsaha"
+            tools:text="Tinga tinga tales of subsaha"
             android:textColor="@android:color/black"
             android:textSize="@dimen/sp_twenty_four"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -56,7 +54,7 @@
             android:layout_marginRight="8dp"
             android:paddingLeft="@dimen/eight_dp"
             android:paddingRight="@dimen/eight_dp"
-            android:text="Kenya National Theatre(KNT)"
+            tools:text="Kenya National Theatre(KNT)"
             android:textSize="@dimen/sixteen_sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.0"
@@ -64,8 +62,8 @@
             app:layout_constraintTop_toBottomOf="@+id/more_title" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/date_view"
             android:orientation="vertical"
@@ -80,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="SEPT"
+                tools:text="SEPT"
                 />
 
             <TextView
@@ -88,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
-                android:text="30"
+                tools:text="30"
                 android:layout_gravity="center"
 
                 />
