@@ -78,7 +78,7 @@
                 android:text="@string/my_favourite"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sp_twenty_four"
-
+                android:gravity="center"
                 />
             <TextView
                 android:layout_width="0dp"
@@ -87,7 +87,7 @@
                 android:text="@string/see_all"
                 android:textColor="@color/blue_strong"
                 android:textAllCaps="true"
-                android:gravity="end"
+                android:gravity="center|end"
                 android:textSize="@dimen/sixteen_sp"
 
                 />

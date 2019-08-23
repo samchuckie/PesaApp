@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.SearchView;
-
 import com.example.pesaapp.Adapters.CategoriesAdapter;
 import com.example.pesaapp.Adapters.FavAdapter;
 import com.example.pesaapp.Adapters.FeaturedAdapter;
@@ -23,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.pesaapp.Data.Constants.CATEGORY_KEY;
+import static com.example.pesaapp.Data.Constants.EVENT_EXTRA;
 
 public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked, CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked {
     MoreAdapters moreAdapters;
@@ -36,6 +36,8 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+
+        //TODO TRANSFER THE INTERFACE OUT TO PULBLIC. REUSE
 
         RecyclerView featured_rv = findViewById(R.id.featured_rv);
         RecyclerView more_rv = findViewById(R.id.more_rv);
@@ -108,8 +110,9 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
 
     @Override
     public void eventClicked(More more) {
-        Log.e("sam" , "Item clicked on not heart is" + more.getTitle());
-
+        Intent intent =  new Intent(Landing.this ,Event.class);
+        intent.putExtra(EVENT_EXTRA, more);
+        startActivity(intent);
     }
 
     @Override
@@ -120,7 +123,7 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
     }
 
     @Override
-    public void voiHeartclicked(More more) {
-        Log.e("sam" , "Item clicked is" + more.getTitle());
+    public void clicked(More more) {
+
     }
 }

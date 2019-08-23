@@ -7,6 +7,7 @@ public class Constants {
     //TODO CHANGE PATHING
     public final static String LOCALHOSTIMAGES = "http://192.168.137.1:8080/loadImages/";
     public final static String CATEGORY_KEY = "CATEGORY_KEY" ;
+    public final static String EVENT_EXTRA = "EVENTS_EXTRA";
 
 
 }

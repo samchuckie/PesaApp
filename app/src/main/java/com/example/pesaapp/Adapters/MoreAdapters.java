@@ -38,11 +38,10 @@ public class MoreAdapters  extends RecyclerView.Adapter<MoreAdapters.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Picasso.get().load(LOCALHOSTIMAGES +  moreArrayList.get(i).getPhoto()).into(viewHolder.imageView);
-        Log.e("sam","Url path is " + LOCALHOST +"loadImages"  +  moreArrayList.get(i).getPhoto());
         viewHolder.more_title.setText(moreArrayList.get(i).getTitle());
         viewHolder.host_tv.setText(moreArrayList.get(i).getHost());
-        viewHolder.month.setText(moreArrayList.get(i).getStart_date());
-        viewHolder.day.setText(moreArrayList.get(i).getStart_date());
+        viewHolder.month.setText(moreArrayList.get(i).dayconvertot());
+        viewHolder.day.setText(moreArrayList.get(i).dateformat()[2]);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class MoreAdapters  extends RecyclerView.Adapter<MoreAdapters.ViewHolder>
         void eventClicked(More more);
     }
     public interface HeartClicked{
-        void voiHeartclicked(More more);
+        void clicked(More more);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -80,7 +79,7 @@ public class MoreAdapters  extends RecyclerView.Adapter<MoreAdapters.ViewHolder>
                 itemclicked.eventClicked(moreArrayList.get(getAdapterPosition()));
             });
             favourite_heart.setOnClickListener(heartlistener -> {
-
+                heartClicked.clicked(moreArrayList.get(getAdapterPosition()));
             });
         }
     }

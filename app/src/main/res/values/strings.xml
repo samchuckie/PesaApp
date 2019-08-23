@@ -28,7 +28,7 @@
     <string name="select_tickets">Select Tickets</string>
     <string name="ticket_type">Ticket type</string>
     <string name="prices">Price (KES)</string>
-    <string name="qty">qty</string>
+    <string name="qty">Qty</string>
     <string name="early_bird">Early Bird</string>
     <string name="five_hundred">500</string>
     <string name="plus">+</string>
@@ -37,7 +37,7 @@
     <string name="closes_on">Closes on:</string>
     <string name="advance_day_1">Advance day 1</string>
     <string name="fifteen_hundred">1500</string>
-    <string name="proceed">Proceed</string>
+    <string name="proceed">Proceed to buy</string>
     <string name="safaricom_pre_paid">Safaricom Pre-paid</string>
     <string name="account">ACCOUNT</string>
     <string name="total">TOTAL</string>
@@ -49,4 +49,5 @@
     <string name="ok">Proceed to event?</string>
     <string name="cancel">cancel</string>
     <string name="found">Found one result</string>
+    <string name="location">Location</string>
 </resources>

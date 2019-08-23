@@ -1,6 +1,9 @@
 package com.example.pesaapp.Data;
 
-public class More {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class More implements Parcelable {
 
     private String title, host, photo, start_date, location, description, time_from, time_to, close_date, close_time ;
     private int id,early_price , advance_price;
@@ -23,6 +26,55 @@ public class More {
     }
 
     public More() {
+    }
+
+    public String[] dateformat (){
+        return this.start_date.split("-");
+    }
+    public String dayconvertot(){
+        String month = dateformat()[2];
+        String mm = "";
+        switch (month){
+            case "01":
+                mm= "JAN";
+                break;
+            case "02":
+                mm = "FEB";
+                break;
+            case "03":
+                mm =  "MCH";
+            break;
+            case "04":
+                mm =  "APR";
+            break;
+            case "05":
+                mm =  "MAY";
+            break;
+            case "06":
+                mm =  "JUNE";
+            break;
+
+            case "07":
+                mm =  "JLY";
+            break;
+            case "08":
+                mm =  "AUG";
+            break;
+            case "09":
+                mm =  "SEP";
+            break;
+            case "10":
+                mm =  "OCT";
+            break;
+            case "11":
+                mm =  "NOV";
+            break;
+            case "DEC":
+                mm =  "DEC";
+            break;
+            default:
+        }
+        return mm;
     }
 
     public String getTitle() {
@@ -134,5 +186,55 @@ public class More {
     public void setAdvance_price(int advance_price) {
         this.advance_price = advance_price;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeString(this.host);
+        dest.writeString(this.photo);
+        dest.writeString(this.start_date);
+        dest.writeString(this.location);
+        dest.writeString(this.description);
+        dest.writeString(this.time_from);
+        dest.writeString(this.time_to);
+        dest.writeString(this.close_date);
+        dest.writeString(this.close_time);
+        dest.writeInt(this.id);
+        dest.writeInt(this.early_price);
+        dest.writeInt(this.advance_price);
+    }
+
+    protected More(Parcel in) {
+        this.title = in.readString();
+        this.host = in.readString();
+        this.photo = in.readString();
+        this.start_date = in.readString();
+        this.location = in.readString();
+        this.description = in.readString();
+        this.time_from = in.readString();
+        this.time_to = in.readString();
+        this.close_date = in.readString();
+        this.close_time = in.readString();
+        this.id = in.readInt();
+        this.early_price = in.readInt();
+        this.advance_price = in.readInt();
+    }
+
+    public static final Parcelable.Creator<More> CREATOR = new Parcelable.Creator<More>() {
+        @Override
+        public More createFromParcel(Parcel source) {
+            return new More(source);
+        }
+
+        @Override
+        public More[] newArray(int size) {
+            return new More[size];
+        }
+    };
 }
 
