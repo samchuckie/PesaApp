@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.pesaapp.Adapters.MoreAdapters;
 import com.example.pesaapp.Data.More;
@@ -23,7 +24,7 @@ import static com.example.pesaapp.Data.Constants.LOADALL;
 import static com.example.pesaapp.Data.Constants.PREFKEY;
 import static com.example.pesaapp.Data.Constants.PREFNAME;
 
-public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclicked {
+public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclicked, MoreAdapters.HeartClicked {
     ManyVM manyVM;
 
     @Override
@@ -34,11 +35,9 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
         RecyclerView allevents_rv = findViewById(R.id.allevents_rv);
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         allevents_rv.setLayoutManager(linearLayout);
-        AllAdapter allAdapter = new AllAdapter(this);
+        AllAdapter allAdapter = new AllAdapter(this,this);
         allevents_rv.setAdapter(allAdapter);
         manyVM = ViewModelProviders.of(this).get(ManyVM.class);
-
-        //if categerory key or all events key from button
 
         manyVM.getMoreList().observe(this , allAdapter::setAll);
         Intent intent = getIntent();
@@ -50,9 +49,7 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
             manyVM.getAll();
         }
         if(intent!=null && intent.hasExtra(FAVOURITES)){
-            SharedPreferences sharedPreferences = this.getSharedPreferences(PREFNAME,MODE_PRIVATE);
-            long phone =sharedPreferences.getLong(PREFKEY,0);
-            manyVM.getFavourite(phone);
+            manyVM.getFavourite();
         }
     }
 
@@ -66,6 +63,13 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(ManyEvents.this , Landing.class));
         finish();
+    }
+
+    @Override
+    public void clicked(More more) {
+        Toast.makeText(this ,"Added to favourites" ,Toast.LENGTH_SHORT).show();
+        manyVM.saveFavourite(more);
     }
 }

@@ -13,6 +13,8 @@ import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.pesaapp.Adapters.CategoriesAdapter;
 import com.example.pesaapp.Adapters.FavAdapter;
 import com.example.pesaapp.Adapters.FeaturedAdapter;
@@ -29,14 +31,14 @@ import static com.example.pesaapp.Data.Constants.LOADALL;
 import static com.example.pesaapp.Data.Constants.PREFKEY;
 import static com.example.pesaapp.Data.Constants.PREFNAME;
 
-public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked, CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked {
+public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked, CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked, FavAdapter.Itemclicked {
     MoreAdapters moreAdapters;
     FeaturedAdapter featuredAdapter;
     FavAdapter favAdapter ;
     CategoriesAdapter categoriesAdapter;
     LandingVM landingVM;
     SearchView events_search;
-    long phone;
+    TextView favourite_all;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,6 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
         setContentView(R.layout.activity_landing);
 
         //TODO TRANSFER THE INTERFACE OUT TO PULBLIC. REUSE
-        SharedPreferences sharedPreferences = this.getSharedPreferences(PREFNAME,MODE_PRIVATE);
-         phone =sharedPreferences.getLong(PREFKEY,0);
-        Log.e("sam" ,"Shared preference is " + phone);
-
         RecyclerView featured_rv = findViewById(R.id.featured_rv);
         RecyclerView more_rv = findViewById(R.id.more_rv);
         RecyclerView fav_rv = findViewById(R.id.fav_rv);
@@ -55,6 +53,8 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
         TextView see_all = findViewById(R.id.see_all);
         events_search = findViewById(R.id.events_search);
         Button load_all = findViewById(R.id.load_all);
+        favourite_all = findViewById(R.id.my_favourite);
+
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         LinearLayoutManager verticalLinear =  new LinearLayoutManager(this ,LinearLayoutManager.HORIZONTAL,false);
         LinearLayoutManager favlinearLayout = new LinearLayoutManager(this);
@@ -66,7 +66,7 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
         categories_rv.setLayoutManager(catlinearLayout);
         featuredAdapter = new FeaturedAdapter(this);
         moreAdapters =  new MoreAdapters(this,this);
-        favAdapter = new FavAdapter();
+        favAdapter = new FavAdapter(this);
         categoriesAdapter = new CategoriesAdapter(this);
         featured_rv.setAdapter(featuredAdapter);
         more_rv.setAdapter(moreAdapters);
@@ -81,10 +81,23 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
 
         //TODO UNIT TESTING ON MORE CLASS THE DATE CLASS SETMETHODS TO RETURN AN ARRAY OF TWO ITEMS. DAY AND TIME
         landingVM = ViewModelProviders.of(this).get(LandingVM.class);
-        landingVM.getFavourite(phone);
         landingVM.getFeaturedlist().observe(this ,featuredObserver -> featuredAdapter.setFeatured(featuredObserver));
         landingVM.getAllList().observe(this , allObserver -> moreAdapters.setAll(allObserver));
-        landingVM.getFavlist().observe(this , favobserver ->favAdapter.setFavourites(favobserver));
+        landingVM.getFavlist().observe(this , favobserver ->{
+            if(favobserver!=null){
+                favAdapter.setFavourites(favobserver);
+                String fav_title = getResources().getString(R.string.my_favourite) + "(" + favobserver.size() +")";
+                favourite_all.setText(fav_title);
+                Log.e("sam", "The for full title is " + fav_title);
+            }
+            else{
+                //use string resources
+                String fav_title = getResources().getString(R.string.my_favourite) + " (" + "0"+")";
+                favourite_all.setText(fav_title);
+                Log.e("sam", "The title is " + fav_title);
+
+            }
+        });
 
         events_search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -151,7 +164,13 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
 
     @Override
     public void clicked(More more) {
-        landingVM.saveFavourite(phone ,more);
+        Toast.makeText(this ,"Added to favourites" ,Toast.LENGTH_SHORT).show();
+        landingVM.saveFavourite(more);
+
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 }

@@ -6,7 +6,7 @@ const sequelize = new Sequelize(`${commons.databasename}`, 'root', 'password', {
   host: 'localhost',
   dialect: 'mysql' ,
   pool: {
-    max: 10,
+    max: 100,
     min: 0,
     acquire: 30000,
     idle: 10000
@@ -70,7 +70,7 @@ const sequelize = new Sequelize(`${commons.databasename}`, 'root', 'password', {
     }).catch((err) => {
       console.log(err)
     });
-  }
+  }  
 
  const insertdata = ()=>{
   event.create({
@@ -156,3 +156,4 @@ const search = (resp,searching)=>{
    search:search,
    createEventsTable:createEventsTable
  }
+ 

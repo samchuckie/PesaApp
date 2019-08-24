@@ -73,4 +73,21 @@ public class ManyModel {
             }
         });
     }
+
+    public void saveFavourite(long phone, More more) {
+        FavouriteInterface favouriteInterface = ValidRetro.getValidRetro().create(FavouriteInterface.class);
+        Call<More> insertfav = favouriteInterface.postFavourite(phone, more.getTitle(),more.getHost(),more.getPhoto(),
+                more.getStart_date(),more.getLocation(),more.getDescription(),more.getTime_from(),more.getTime_to()
+                ,more.getEarly_price(),more.getAdvance_price(),more.getClose_date(),more.getClose_time());
+
+        insertfav.enqueue(new Callback<More>() {
+            @Override
+            public void onResponse(Call<More> call, Response<More> response) {
+            }
+            @Override
+            public void onFailure(Call<More> call, Throwable t) {
+
+            }
+        });
+    }
 }

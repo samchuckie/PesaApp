@@ -21,10 +21,12 @@ import static com.example.pesaapp.Data.Constants.LOCALHOSTIMAGES;
 public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
     private List<More> moreArrayList = new ArrayList<>();
     private Itemclicked itemclicked;
-    private HeartClicked heartClicked;
+    private MoreAdapters.HeartClicked heartClicked;
 
-    public AllAdapter(Itemclicked itemclicked ) {
+
+    public AllAdapter(Itemclicked itemclicked  , MoreAdapters.HeartClicked heartClicked) {
         this.itemclicked =itemclicked;
+        this.heartClicked = heartClicked;
     }
     @NonNull
     @Override
@@ -44,7 +46,13 @@ public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if(moreArrayList.size()!=0){
+        //remove redudant null check
+        if(moreArrayList!=null){
+            if( moreArrayList.size()!=0) {
+                if (moreArrayList.size() > 3) {
+                    return 3;
+                }
+            }
             return moreArrayList.size();
         }
         return 0;
@@ -56,9 +64,6 @@ public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
     }
     public interface Itemclicked{
         void eventClicked(More more);
-    }
-    public interface HeartClicked{
-        void clicked(More more);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -73,12 +78,8 @@ public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
             host_tv = itemView.findViewById(R.id.host_tv);
             month = itemView.findViewById(R.id.month);
             day = itemView.findViewById(R.id.day);
-            itemView.setOnClickListener(clicked ->{
-                itemclicked.eventClicked(moreArrayList.get(getAdapterPosition()));
-            });
-            favourite_heart.setOnClickListener(heartlistener -> {
-                heartClicked.clicked(moreArrayList.get(getAdapterPosition()));
-            });
+            itemView.setOnClickListener(clicked -> itemclicked.eventClicked(moreArrayList.get(getAdapterPosition())));
+            favourite_heart.setOnClickListener(heartlistener -> heartClicked.clicked(moreArrayList.get(getAdapterPosition())));
         }
     }
 }

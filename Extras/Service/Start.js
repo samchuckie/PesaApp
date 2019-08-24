@@ -44,7 +44,7 @@ app.get("/category/:category", (req,resp) =>{
     }
 })
 app.get("/getall" ,(req,resp)=>{
-    selectAll.sall(resp)
+    selectAll.getALL(resp)
 })
 app.get("/favorite" ,(req,resp)=>{
     console.log("Get for favourite")
