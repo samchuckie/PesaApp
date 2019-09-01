@@ -64,8 +64,8 @@ public class LandingVM extends AndroidViewModel {
         this.resultlist =searchlist;
     }
 
-    public void saveFavourite(More more) {
-        landingModel.saveFavourite(phone ,more);
+    public void saveFavourite(String title) {
+        landingModel.saveFavourite(phone ,title);
     }
     public MutableLiveData<List<More>> getFavlist() {
         return favlist;

@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pesaapp.Data.More;
-import com.example.pesaapp.Model.AllAdapter;
 import com.example.pesaapp.R;
 import com.squareup.picasso.Picasso;
 

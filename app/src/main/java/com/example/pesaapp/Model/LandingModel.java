@@ -85,15 +85,14 @@ public class LandingModel {
         });
     }
 
-    public void saveFavourite(long phone, More more) {
+    public void saveFavourite(long phone, String title) {
         FavouriteInterface favouriteInterface = ValidRetro.getValidRetro().create(FavouriteInterface.class);
-        Call<More> insertfav = favouriteInterface.postFavourite(phone, more.getTitle(),more.getHost(),more.getPhoto(),
-                more.getStart_date(),more.getLocation(),more.getDescription(),more.getTime_from(),more.getTime_to()
-                ,more.getEarly_price(),more.getAdvance_price(),more.getClose_date(),more.getClose_time());
+        Call<More> insertfav = favouriteInterface.postFavourite(phone,title);
 
         insertfav.enqueue(new Callback<More>() {
             @Override
             public void onResponse(Call<More> call, Response<More> response) {
+                // handle already favourite been clicked. Delete ?inform user?
             }
             @Override
             public void onFailure(Call<More> call, Throwable t) {

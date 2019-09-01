@@ -82,9 +82,8 @@ public class SignUp extends AppCompatActivity {
             }
             else {
                 phonenumber =  Long.parseLong(sign_phone_number.getText().toString());
-                PesaUsers user = new PesaUsers(phonenumber,pass);
+                PesaUsers user = new PesaUsers(phonenumber,pass,email);
                 validVM.signUp(user);
-
             }
         });
     }

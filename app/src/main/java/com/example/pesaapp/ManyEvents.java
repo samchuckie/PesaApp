@@ -2,27 +2,21 @@ package com.example.pesaapp;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.pesaapp.Adapters.MoreAdapters;
 import com.example.pesaapp.Data.More;
-import com.example.pesaapp.Model.AllAdapter;
-import com.example.pesaapp.Model.ManyModel;
+import com.example.pesaapp.Adapters.AllAdapter;
 import com.example.pesaapp.ViewModels.ManyVM;
 
 import static com.example.pesaapp.Data.Constants.CATEGORY_KEY;
 import static com.example.pesaapp.Data.Constants.EVENT_EXTRA;
 import static com.example.pesaapp.Data.Constants.FAVOURITES;
 import static com.example.pesaapp.Data.Constants.LOADALL;
-import static com.example.pesaapp.Data.Constants.PREFKEY;
-import static com.example.pesaapp.Data.Constants.PREFNAME;
 
 public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclicked, MoreAdapters.HeartClicked {
     ManyVM manyVM;
@@ -39,7 +33,9 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
         allevents_rv.setAdapter(allAdapter);
         manyVM = ViewModelProviders.of(this).get(ManyVM.class);
 
-        manyVM.getMoreList().observe(this , allAdapter::setAll);
+        manyVM.getMoreList().observe(this , allevents->{
+            allAdapter.setAll(allevents,false);
+        });
         Intent intent = getIntent();
         if(intent!=null && intent.hasExtra(CATEGORY_KEY)){
             String category = intent.getStringExtra(CATEGORY_KEY);
@@ -70,6 +66,6 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
     @Override
     public void clicked(More more) {
         Toast.makeText(this ,"Added to favourites" ,Toast.LENGTH_SHORT).show();
-        manyVM.saveFavourite(more);
+        manyVM.saveFavourite(more.getTitle());
     }
 }

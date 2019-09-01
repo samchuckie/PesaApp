@@ -43,8 +43,8 @@ public class ManyVM extends AndroidViewModel {
     public void getFavourite() {
         manyModel.getfav(phone);
     }
-    public void saveFavourite(More more) {
-        manyModel.saveFavourite(phone ,more);
+    public void saveFavourite(String  title) {
+        manyModel.saveFavourite(phone ,title);
     }
 
 }

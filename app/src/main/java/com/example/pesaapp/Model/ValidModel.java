@@ -49,6 +49,7 @@ public class ValidModel {
         Call<PesaUsers> signup = validInterface.signup(user.getPhone(),user.getPassword(),user.getEmail());
         Log.e("sam","phone number is " + user.getPhone());
         Log.e("sam","password is " + user.getPassword());
+        Log.e("sam","Email is " + user.getEmail());
         signup.enqueue(callback);
 
     }

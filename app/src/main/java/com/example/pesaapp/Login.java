@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,7 +18,19 @@ import android.widget.Toast;
 
 import com.example.pesaapp.Data.More;
 import com.example.pesaapp.Data.PesaUsers;
+import com.example.pesaapp.Network.AllInterface;
+import com.example.pesaapp.Network.ValidRetro;
 import com.example.pesaapp.ViewModels.ValidVM;
+
+import org.json.JSONObject;
+
+import java.util.Map;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.example.pesaapp.Data.Constants.PREFKEY;
 import static com.example.pesaapp.Data.Constants.PREFNAME;
@@ -63,7 +76,6 @@ public class Login extends AppCompatActivity {
                 phonenumber =  Long.parseLong(phone_number.getText().toString());
                 PesaUsers user = new PesaUsers(phonenumber,pass);
                 validVM.login(user);
-
             }
         });
 

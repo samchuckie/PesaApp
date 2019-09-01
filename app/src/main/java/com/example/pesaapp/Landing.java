@@ -2,7 +2,6 @@ package com.example.pesaapp;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,7 +30,8 @@ import static com.example.pesaapp.Data.Constants.LOADALL;
 import static com.example.pesaapp.Data.Constants.PREFKEY;
 import static com.example.pesaapp.Data.Constants.PREFNAME;
 
-public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked, CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked, FavAdapter.Itemclicked {
+public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked,
+        CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked, FavAdapter.Itemclicked {
     MoreAdapters moreAdapters;
     FeaturedAdapter featuredAdapter;
     FavAdapter favAdapter ;
@@ -79,7 +79,7 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
         categoriesList.add(new Categories("Gaming"));
         categoriesAdapter.addCategories(categoriesList);
 
-        //TODO UNIT TESTING ON MORE CLASS THE DATE CLASS SETMETHODS TO RETURN AN ARRAY OF TWO ITEMS. DAY AND TIME
+        //TODO TO LOAD ALL OF THE DATA NEST THE THREE CALLS INTO ONE LIKE THE LEAGUE ONE.CALL THEM IN SEQUENCE AND THEN LOAD DATA AFTER ALL ARE COMPLETED
         landingVM = ViewModelProviders.of(this).get(LandingVM.class);
         landingVM.getFeaturedlist().observe(this ,featuredObserver -> featuredAdapter.setFeatured(featuredObserver));
         landingVM.getAllList().observe(this , allObserver -> moreAdapters.setAll(allObserver));
@@ -165,7 +165,7 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
     @Override
     public void clicked(More more) {
         Toast.makeText(this ,"Added to favourites" ,Toast.LENGTH_SHORT).show();
-        landingVM.saveFavourite(more);
+        landingVM.saveFavourite(more.getTitle());
 
     }
 
