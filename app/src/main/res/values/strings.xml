@@ -19,17 +19,17 @@
     <string name="more_events">More events</string>
     <string name="load_all_events">Load all events</string>
     <string name="dummy_text">Tinga tinga tales of subsahara </string>
-    <string name="dummy_host">nkKenya National Theatre(KNT)</string>
+    <string name="dummy_host">Kenya National Theatre(KNT)</string>
     <string name="by_dummy_host">by nkKenya National Theatre(KNT)</string>
     <string name="when">When</string>
     <string name="dummy_tinga">Tinga tinga prod</string>
     <string name="date">Sun 30 sep 10 am -7 pm</string>
-    <string name="random_text">a secret mission and go buy me a private jet u see i can not fly anymore so i need someone to send me a private JET NOT A AIRPLANE i already have 2,345 airplanes please do not send me an airplane.please and thank you i hope u can complete my mission.</string>
+    <string name="random_text">A secret mission and go buy me a private jet u see i can not fly anymore so i need someone to send me a private JET NOT A AIRPLANE i already have 2,345 airplanes please do not send me an airplane.please and thank you i hope u can complete my mission.</string>
     <string name="select_tickets">Select Tickets</string>
     <string name="ticket_type">Ticket type</string>
     <string name="prices">Price (KES)</string>
     <string name="qty">Qty</string>
-    <string name="early_bird">Early Bird</string>
+    <string name="early_bird">Early Bird Day 1</string>
     <string name="five_hundred">500</string>
     <string name="plus">+</string>
     <string name="zero">0</string>
@@ -54,4 +54,7 @@
     <string name="preference_key">myprivatekey</string>
     <string name="user_phone">phone</string>
     <string name="pesapref">pesapreference</string>
+    <string name="event_image">Event image</string>
+    <string name="favourite_description">Favourite description</string>
+    <string name="add_a_new_card">Add a new card</string>
 </resources>

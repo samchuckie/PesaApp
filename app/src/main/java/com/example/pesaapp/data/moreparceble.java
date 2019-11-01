@@ -1,17 +1,16 @@
-package com.example.pesaapp.Data;
+package com.example.pesaapp.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-public class More implements Parcelable {
+public class moreparceble implements Parcelable{
 
     private String host, photo, start_date, location, description, time_from, time_to, close_date, close_time ;
 
     private String title;
     private int id,early_price, advance_price;
 
-    public More(String title, String host, String photo, String start_date, String location, String description,
-                    String time_from, String time_to, String close_date, String close_time, int id, int early_price, int advance_price) {
+    public moreparceble(String title, String host, String photo, String start_date, String location, String description,
+                String time_from, String time_to, String close_date, String close_time, int id, int early_price, int advance_price) {
         this.title = title;
         this.host = host;
         this.photo = photo;
@@ -27,65 +26,7 @@ public class More implements Parcelable {
         this.advance_price = advance_price;
     }
 
-    public More() {
-    }
-    public String favdateformated(){
-        String date = dateformat()[2];
-        String month = dateformat()[1];
-        return date + "/"+  month;
-    }
-    public String eventdateformated(){
-        String date = dateformat()[2];
-        return date + " "+  dayconvertor();
-    }
-
-    public String[] dateformat (){
-        return this.start_date.split("-");
-    }
-    public String dayconvertor(){
-        String month = dateformat()[1];
-        String mm = "";
-        switch (month){
-            case "01":
-                mm= "Jan";
-                break;
-            case "02":
-                mm = "Feb";
-                break;
-            case "03":
-                mm =  "Mar";
-            break;
-            case "04":
-                mm =  "Apr";
-            break;
-            case "05":
-                mm =  "May";
-            break;
-            case "06":
-                mm =  "June";
-            break;
-
-            case "07":
-                mm =  "Jly";
-            break;
-            case "08":
-                mm =  "Aug";
-            break;
-            case "09":
-                mm =  "Sep";
-            break;
-            case "10":
-                mm =  "Oct";
-            break;
-            case "11":
-                mm =  "Nov";
-            break;
-            case "DEC":
-                mm =  "Dec";
-            break;
-            default:
-        }
-        return mm;
+    public moreparceble() {
     }
 
     public String getTitle() {
@@ -220,7 +161,7 @@ public class More implements Parcelable {
         dest.writeInt(this.advance_price);
     }
 
-    protected More(Parcel in) {
+    protected moreparceble(Parcel in) {
         this.title = in.readString();
         this.host = in.readString();
         this.photo = in.readString();
@@ -236,16 +177,16 @@ public class More implements Parcelable {
         this.advance_price = in.readInt();
     }
 
-    public static final Parcelable.Creator<More> CREATOR = new Parcelable.Creator<More>() {
+    public static final Parcelable.Creator<moreparceble> CREATOR = new Parcelable.Creator<moreparceble>() {
         @Override
-        public More createFromParcel(Parcel source) {
-            return new More(source);
+        public moreparceble createFromParcel(Parcel source) {
+            return new moreparceble(source);
         }
 
         @Override
-        public More[] newArray(int size) {
-            return new More[size];
+        public moreparceble[] newArray(int size) {
+            return new moreparceble[size];
         }
     };
-}
 
+}

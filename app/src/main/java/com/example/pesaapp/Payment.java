@@ -1,22 +1,14 @@
 package com.example.pesaapp;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.androidstudy.daraja.Daraja;
-import com.androidstudy.daraja.DarajaListener;
-import com.androidstudy.daraja.model.AccessToken;
-
-import static com.example.pesaapp.Data.Constants.ACCOUNT;
-import static com.example.pesaapp.Data.Constants.TOTAL_AMOUNT;
+import static com.example.pesaapp.data.Constants.ACCOUNT;
+import static com.example.pesaapp.data.Constants.TOTAL_AMOUNT;
 
 public class Payment extends AppCompatActivity {
     String account_name;

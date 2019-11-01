@@ -5,9 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/eight_dp"
-    android:layout_margin="@dimen/eight_dp"
-    app:cardCornerRadius="@dimen/sixteen_sp"
+    android:layout_marginBottom="@dimen/sixteen_dp"
+    android:layout_marginTop="@dimen/sixteen_dp"
+    android:layout_marginLeft="@dimen/eight_dp"
+    android:layout_marginRight="@dimen/eight_dp"
+    app:cardCornerRadius="@dimen/sp_sixteen"
 
     >
 
@@ -23,7 +25,6 @@
             android:layout_height="220dp"
             tools:background="@drawable/gaming"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/categories_description"
@@ -42,19 +43,8 @@
             />
         <TextView
             android:id="@+id/more_title"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:ellipsize="end"
-            android:paddingLeft="@dimen/eight_dp"
-            android:paddingRight="@dimen/eight_dp"
+            style="@style/Events_more_items"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/sp_twenty_four"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/guideline3"
@@ -62,47 +52,41 @@
 
         <TextView
             android:id="@+id/host_tv"
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:paddingLeft="@dimen/eight_dp"
-            android:paddingRight="@dimen/eight_dp"
-            android:textSize="@dimen/sixteen_sp"
+            style="@style/Events_more_items"
+            android:textSize="@dimen/sp_sixteen"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toBottomOf="@+id/more_title"
             tools:text="@string/dummy_host" />
 
         <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/date_view"
             android:orientation="vertical"
             android:padding="@dimen/eight_dp"
-            android:layout_marginBottom="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/dp_twent_four"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/guideline3">
 
             <TextView
                 android:id="@+id/month"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
                 tools:text="SEPT"
+                android:gravity="center"
                 />
 
             <TextView
                 android:id="@+id/day"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="true"
                 tools:text="30"
-                android:layout_gravity="center"
+                android:gravity="center"
 
                 />
         </LinearLayout>
@@ -112,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="16dp" />
+            app:layout_constraintGuide_begin="@dimen/eight_dp" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline2"
@@ -126,14 +110,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="75dp" />
+            app:layout_constraintGuide_begin="75dp"
+            android:visibility="invisible"
+            />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="220dp" />
+            app:layout_constraintGuide_begin="220dp"
+            android:visibility="invisible"
+            />
 
 
     </android.support.constraint.ConstraintLayout>

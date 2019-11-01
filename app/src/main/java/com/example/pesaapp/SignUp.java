@@ -13,10 +13,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.pesaapp.Data.PesaUsers;
+import com.example.pesaapp.data.PesaUsers;
 import com.example.pesaapp.ViewModels.ValidVM;
 
-import static com.example.pesaapp.Data.Constants.PREFNAME;
+import static com.example.pesaapp.data.Constants.PREFNAME;
 import static com.example.pesaapp.Login.animate;
 
 public class SignUp extends AppCompatActivity {

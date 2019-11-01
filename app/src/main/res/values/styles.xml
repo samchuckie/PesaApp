@@ -3,38 +3,47 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/blue_strong</item>
+        <item name="colorPrimaryDark">@color/blue_strong</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- Transparent theme for Event and transparent -->
     <style name="AppTheme.Transparent" parent="Theme.AppCompat.Light">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/transparent</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="fields">
-        <item name="android:layout_width">match_parent</item>
+    <!-- Style for Log in and Sign up labels -->
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/sixteen_sp</item>
+        <item name="android:layout_marginTop">@dimen/sixteen_dp</item>
+        <item name="android:paddingLeft">@dimen/sixteen_dp</item>
+        <item name="android:visibility">visible</item>
     </style>
 
+    <!--Styling for Log in and Sign up edit text fields -->
     <style name="fields_edit" parent="fields">
         <item name="android:background">@drawable/field_background</item>
         <item name="android:padding">@dimen/sixteen_dp</item>
     </style>
 
-    <style name="wrap_wrap">
-        <item name="android:layout_width">wrap_content</item>
+    <!-- Parent styling for buttons and full width views like buttons and edit text -->
+    <style name="fields">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/sixteen_dp</item>
+        <item name="android:textSize">@dimen/sp_sixteen</item>
     </style>
 
+    <!-- Styling for buttons -->
     <style name="fields_button" parent="fields">
         <item name="android:background">@drawable/field_background_button</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <!-- Blue button  styling -->
     <style name="fields_button_blue" parent="fields">
         <item name="android:background">@drawable/field_background_blue</item>
         <item name="android:textColor">@android:color/white</item>
@@ -54,11 +63,26 @@
         <item name="android:windowTranslucentStatus"
             tools:targetApi="kitkat">true</item>
     </style>
+
+    <style name="Events_items">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart" tools:ignore="NewApi">@dimen/eight_dp</item>
+        <item name="android:layout_marginLeft" tools:ignore="NewApi">@dimen/eight_dp</item>
+        <item name="android:layout_marginEnd" tools:ignore="NewApi">@dimen/eight_dp</item>
+        <item name="android:layout_marginRight" tools:ignore="NewApi">@dimen/eight_dp</item>
+        <item name="android:layout_marginTop" tools:ignore="NewApi">@dimen/eight_dp</item>
+        <item name="android:textSize">@dimen/sp_sixteen</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="Events_more_items" parent="Events_items">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:textSize">@dimen/sp_twenty_four</item>
+    </style>
+
     <style name="TransperantToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
     </style>
-
-
-
 </resources>

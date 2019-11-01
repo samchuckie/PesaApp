@@ -7,14 +7,14 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.Model.LandingModel;
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
-import static com.example.pesaapp.Data.Constants.PREFKEY;
-import static com.example.pesaapp.Data.Constants.PREFNAME;
+import static com.example.pesaapp.data.Constants.PREFKEY;
+import static com.example.pesaapp.data.Constants.PREFNAME;
 
 public class LandingVM extends AndroidViewModel {
     private LandingModel landingModel;

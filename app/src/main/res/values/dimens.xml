@@ -5,12 +5,14 @@
     <dimen name="eight_dp">8dp</dimen>
     <dimen name="title_sp">24sp</dimen>
     <dimen name="btn_radius">50dp</dimen>
-    <dimen name="sixteen_sp">16sp</dimen>
+    <dimen name="sp_sixteen">16sp</dimen>
     <dimen name="title_top">40dp</dimen>
     <dimen name="heartshape">50dp</dimen>
     <dimen name="sp_twenty_four">24sp</dimen>
     <dimen name="border_radius">2dp</dimen>
     <dimen name="sp_thirty_two">32sp</dimen>
     <dimen name="dp_twent_four">24dp</dimen>
+    <dimen name="sp_twelve">12sp</dimen>
+    <dimen name="dp_fifty_six">56dp</dimen>
 
 </resources>

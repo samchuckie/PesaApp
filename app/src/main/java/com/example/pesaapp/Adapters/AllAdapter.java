@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import static com.example.pesaapp.Data.Constants.LOCALHOSTIMAGES;
+import static com.example.pesaapp.data.Constants.LOCALHOSTIMAGES;
 
 public class AllAdapter extends RecyclerView.Adapter<AllAdapter.ViewHolder> {
     private List<More> moreArrayList = new ArrayList<>();

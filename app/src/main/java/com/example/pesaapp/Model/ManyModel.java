@@ -1,12 +1,9 @@
 package com.example.pesaapp.Model;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.content.Context;
-import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.Network.AllInterface;
 import com.example.pesaapp.Network.CategoryInterface;
 import com.example.pesaapp.Network.FavouriteInterface;

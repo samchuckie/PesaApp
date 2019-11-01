@@ -9,14 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.pesaapp.Adapters.MoreAdapters;
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.Adapters.AllAdapter;
 import com.example.pesaapp.ViewModels.ManyVM;
+import com.example.pesaapp.data.moreparceble;
 
-import static com.example.pesaapp.Data.Constants.CATEGORY_KEY;
-import static com.example.pesaapp.Data.Constants.EVENT_EXTRA;
-import static com.example.pesaapp.Data.Constants.FAVOURITES;
-import static com.example.pesaapp.Data.Constants.LOADALL;
+import static com.example.pesaapp.data.Constants.CATEGORY_KEY;
+import static com.example.pesaapp.data.Constants.EVENT_EXTRA;
+import static com.example.pesaapp.data.Constants.FAVOURITES;
+import static com.example.pesaapp.data.Constants.LOADALL;
 
 public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclicked, MoreAdapters.HeartClicked {
     ManyVM manyVM;
@@ -52,7 +53,10 @@ public class ManyEvents extends AppCompatActivity implements AllAdapter.Itemclic
     @Override
     public void eventClicked(More more) {
         Intent intent =  new Intent(ManyEvents.this ,Event.class);
-        intent.putExtra(EVENT_EXTRA, more);
+        moreparceble moreparceble = new moreparceble(more.getTitle(),more.getPhoto(),more.getStart_date(),more.getLocation()
+                ,more.getDescription(),more.getTime_from(),"df","dfdfd","dfsdsfd",
+                "dsfewef",more.getId(),1500,2000);
+        intent.putExtra(EVENT_EXTRA, moreparceble);
         startActivity(intent);
     }
 

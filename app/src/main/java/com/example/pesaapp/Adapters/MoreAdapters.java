@@ -2,22 +2,20 @@ package com.example.pesaapp.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.pesaapp.Data.Constants.LOCALHOST;
-import static com.example.pesaapp.Data.Constants.LOCALHOSTIMAGES;
+import static com.example.pesaapp.data.Constants.LOCALHOSTIMAGES;
 
 public class MoreAdapters  extends RecyclerView.Adapter<MoreAdapters.ViewHolder> {
     private List<More> moreArrayList = new ArrayList<>();

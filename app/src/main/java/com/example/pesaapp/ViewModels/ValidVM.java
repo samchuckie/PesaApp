@@ -6,7 +6,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.pesaapp.Data.PesaUsers;
+import com.example.pesaapp.data.PesaUsers;
 import com.example.pesaapp.Model.ValidModel;
 
 public class ValidVM extends AndroidViewModel {

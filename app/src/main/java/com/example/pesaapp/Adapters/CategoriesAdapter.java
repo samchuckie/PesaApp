@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.example.pesaapp.Data.Categories;
+import com.example.pesaapp.data.Categories;
 import com.example.pesaapp.R;
 import java.util.ArrayList;
 import java.util.List;

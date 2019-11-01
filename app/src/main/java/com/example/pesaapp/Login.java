@@ -1,59 +1,35 @@
 package com.example.pesaapp;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-import android.support.v4.util.ArrayMap;
+import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.pesaapp.Data.More;
-import com.example.pesaapp.Data.PesaUsers;
-import com.example.pesaapp.Network.AllInterface;
-import com.example.pesaapp.Network.ValidRetro;
+import com.example.pesaapp.data.PesaUsers;
 import com.example.pesaapp.ViewModels.ValidVM;
-
-import org.json.JSONObject;
-
-import java.util.Map;
-
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-import static com.example.pesaapp.Data.Constants.PREFKEY;
-import static com.example.pesaapp.Data.Constants.PREFNAME;
+import com.example.pesaapp.databinding.ActivityLoginBinding;
+import static com.example.pesaapp.data.Constants.PREFKEY;
+import static com.example.pesaapp.data.Constants.PREFNAME;
 
 
 public class Login extends AppCompatActivity {
     ValidVM validVM;
     Long phonenumber;
-    EditText phone_number, password;
     SharedPreferences sharedPreferences;
+    ActivityLoginBinding activityLoginBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        sharedPreferences = this.getSharedPreferences(PREFNAME ,MODE_PRIVATE);
+        activityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login);
 
-        phone_number= findViewById(R.id.phone_number);
-        password= findViewById(R.id.password);
-        TextView signup_tv = findViewById(R.id.signup_tv);
-        Button login_btn = findViewById(R.id.login_btn);
-        TextView password_label = findViewById(R.id.password_label);
-        TextView phone_label = findViewById(R.id.phone_label);
+        sharedPreferences = this.getSharedPreferences(PREFNAME ,MODE_PRIVATE);
         validVM = ViewModelProviders.of(this).get(ValidVM.class);
         validVM.getMutableLiveData().observe(this, code -> {
             Log.e("sam" , "The livedata response is" + code);
@@ -67,31 +43,31 @@ public class Login extends AppCompatActivity {
 
         //TODO CHECK DUPLICATION OF VIEWMODEL ALONE AND IN LOG AND SIGN
 
-        login_btn.setOnClickListener(listener ->{
-            String pass =  password.getText().toString();
-            if(TextUtils.isEmpty(phone_number.getText().toString()) || TextUtils.isEmpty(pass)){
+        activityLoginBinding.loginBtn.setOnClickListener(listener ->{
+            String pass =  activityLoginBinding.password.getText().toString();
+            if(TextUtils.isEmpty(activityLoginBinding.phoneNumber.getText().toString()) || TextUtils.isEmpty(pass)){
                 Toast.makeText(this,"Please input all the fields",Toast.LENGTH_SHORT).show();
             }
             else {
-                phonenumber =  Long.parseLong(phone_number.getText().toString());
+                phonenumber =  Long.parseLong(activityLoginBinding.phoneNumber.getText().toString());
                 PesaUsers user = new PesaUsers(phonenumber,pass);
                 validVM.login(user);
             }
         });
 
-        signup_tv.setOnClickListener(signListener -> {
+        activityLoginBinding.signupTv.setOnClickListener(signListener -> {
             startActivity(new Intent(this ,SignUp.class));
             finish();
         });
 
-        phone_number.setOnFocusChangeListener((view,hasFocus) ->{
-            if(hasFocus &&(phone_label.getVisibility() == View.INVISIBLE)){
-                animate(phone_label);
+        activityLoginBinding.phoneNumber.setOnFocusChangeListener((view,hasFocus) ->{
+            if(hasFocus &&(activityLoginBinding.phoneLabel.getVisibility() == View.INVISIBLE)){
+                animate(activityLoginBinding.phoneLabel);
             }
         });
-        password.setOnFocusChangeListener((view,hasFocus) ->{
-            if(hasFocus &&(password_label.getVisibility() ==View.INVISIBLE)){
-                animate(password_label);
+        activityLoginBinding.password.setOnFocusChangeListener((view,hasFocus) ->{
+            if(hasFocus &&(activityLoginBinding.passwordLabel.getVisibility() ==View.INVISIBLE)){
+                animate(activityLoginBinding.passwordLabel);
             }
         });
     }

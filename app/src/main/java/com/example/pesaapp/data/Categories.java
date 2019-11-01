@@ -1,4 +1,4 @@
-package com.example.pesaapp.Data;
+package com.example.pesaapp.data;
 
 public class Categories {
     private String name;

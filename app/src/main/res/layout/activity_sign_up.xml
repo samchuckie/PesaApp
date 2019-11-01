@@ -68,7 +68,7 @@
         android:layout_marginTop="@dimen/sixteen_dp"
         android:textColor="@android:color/black"
         android:id="@+id/already_tv"
-        android:textSize="@dimen/sixteen_sp"
+        android:textSize="@dimen/sp_sixteen"
         />
 
 </LinearLayout>

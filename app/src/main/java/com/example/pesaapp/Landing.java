@@ -13,22 +13,22 @@ import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.pesaapp.Adapters.CategoriesAdapter;
 import com.example.pesaapp.Adapters.FavAdapter;
 import com.example.pesaapp.Adapters.FeaturedAdapter;
 import com.example.pesaapp.Adapters.MoreAdapters;
-import com.example.pesaapp.Data.Categories;
-import com.example.pesaapp.Data.More;
+import com.example.pesaapp.data.Categories;
+import com.example.pesaapp.data.More;
 import com.example.pesaapp.ViewModels.LandingVM;
+import com.example.pesaapp.data.moreparceble;
+
 import java.util.ArrayList;
 import java.util.List;
-import static com.example.pesaapp.Data.Constants.CATEGORY_KEY;
-import static com.example.pesaapp.Data.Constants.EVENT_EXTRA;
-import static com.example.pesaapp.Data.Constants.FAVOURITES;
-import static com.example.pesaapp.Data.Constants.LOADALL;
-import static com.example.pesaapp.Data.Constants.PREFKEY;
-import static com.example.pesaapp.Data.Constants.PREFNAME;
+import static com.example.pesaapp.data.Constants.CATEGORY_KEY;
+import static com.example.pesaapp.data.Constants.EVENT_EXTRA;
+import static com.example.pesaapp.data.Constants.FAVOURITES;
+import static com.example.pesaapp.data.Constants.LOADALL;
+
 
 public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemclicked,
         CategoriesAdapter.CategInt, MoreAdapters.Itemclicked, MoreAdapters.HeartClicked, FavAdapter.Itemclicked {
@@ -79,7 +79,7 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
         categoriesList.add(new Categories("Gaming"));
         categoriesAdapter.addCategories(categoriesList);
 
-        //TODO TO LOAD ALL OF THE DATA NEST THE THREE CALLS INTO ONE LIKE THE LEAGUE ONE.CALL THEM IN SEQUENCE AND THEN LOAD DATA AFTER ALL ARE COMPLETED
+        //TODO TO LOAD ALL OF THE DATA NEST THE THREE CALLS INTO ONE.CALL THEM IN SEQUENCE AND THEN LOAD DATA AFTER ALL ARE COMPLETED
         landingVM = ViewModelProviders.of(this).get(LandingVM.class);
         landingVM.getFeaturedlist().observe(this ,featuredObserver -> featuredAdapter.setFeatured(featuredObserver));
         landingVM.getAllList().observe(this , allObserver -> moreAdapters.setAll(allObserver));
@@ -95,7 +95,6 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
                 String fav_title = getResources().getString(R.string.my_favourite) + " (" + "0"+")";
                 favourite_all.setText(fav_title);
                 Log.e("sam", "The title is " + fav_title);
-
             }
         });
 
@@ -151,7 +150,14 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
     @Override
     public void eventClicked(More more) {
         Intent intent =  new Intent(Landing.this ,Event.class);
-        intent.putExtra(EVENT_EXTRA, more);
+
+        //TODO FIRST CHANGE THE URL TO RETURN ONLY PHOTO TITLE ,DATE AND TITLE
+        //TODO USE DIFFERENT URL FOR THOSE WITH EXTRA LIKE I THINK FAVOURITE
+
+        moreparceble moreparceble = new moreparceble(more.getTitle(),more.getPhoto(),more.getStart_date(),more.getLocation()
+        ,more.getDescription(),more.getTime_from(),"df","dfdfd","dfsdsfd",
+                "dsfewef",more.getId(),1500,2000);
+        intent.putExtra(EVENT_EXTRA, moreparceble);
         startActivity(intent);
     }
 
@@ -166,11 +172,6 @@ public class Landing extends AppCompatActivity implements FeaturedAdapter.Itemcl
     public void clicked(More more) {
         Toast.makeText(this ,"Added to favourites" ,Toast.LENGTH_SHORT).show();
         landingVM.saveFavourite(more.getTitle());
-
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 }
